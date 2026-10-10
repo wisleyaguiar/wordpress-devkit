@@ -7,6 +7,10 @@ description: "Design, debug or review WordPress content models and ACF. Use for 
 
 Read `references/engineering-contract.md` first. Review requests stay read-only: assess, explain and recommend without edits, schema or data changes, `wp acf json sync|import`, backfills, or running untrusted code. Use the implementation path only when the request authorizes changes.
 
+## Applicability
+
+Confirm that ACF or Secure Custom Fields is active, or that its registrations exist (`acf/init`, `acf_add_local_field_group`, an `acf-json/` folder, `get_field`). If not, report `Not used in this project` for the ACF parts. Review plain post type and taxonomy modeling only when the request asks for it.
+
 ## Inputs to establish
 
 ACF edition and version (or Secure Custom Fields), WordPress version, where field definitions live (database, Local JSON path, PHP), field keys and names involved, return formats, record volume per post type, consumers of the data (templates, blocks, REST, GraphQL, feeds, imports), multisite and translation plugin use, and whether a disposable copy of the site exists.

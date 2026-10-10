@@ -7,6 +7,10 @@ description: "Build, debug or review WordPress Playground Blueprints, @wp-playgr
 
 Read `references/engineering-contract.md` first. Review requests stay read-only: read Blueprints and configs, never boot them, execute their PHP/SQL/WP-CLI steps, or fetch their resources. Implementation or runtime verification applies only when the request authorizes it, in a disposable environment.
 
+## Applicability
+
+Confirm that a Blueprint (`blueprint.json`), `@wp-playground/*`, `wp-now` or a Playground embed exists outside `.git`, `.claude`, `vendor` and `node_modules`. If not, report `Not used in this project`. Guide text, documentation pages and copies of other skills are not project evidence.
+
 ## Inputs
 
 What must be reproduced or demonstrated, the artifact under test and its identity, Blueprint schema generation, resolved WordPress and PHP versions, CLI package version, Node version, mounts, and whether booting is authorized. Inspect project files first; ask only what changes the decision.

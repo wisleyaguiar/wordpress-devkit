@@ -4,6 +4,19 @@ All notable changes to this project are recorded here. The format follows [Keep 
 
 ## [Unreleased]
 
+## [2.0.3] - 2026-10-10
+
+### Changed
+
+- Each skill first checks that the technology it covers is used in the project. If it is not, the skill reports `Not used in this project` with its evidence and stops, instead of reviewing nearby code.
+- A review may read the state of a local copy (list and get commands, `SELECT` queries, HTTP GET). The skills now say this, how to use WP-CLI in a container whose entrypoint is already `wp`, what to do when the site is not running, and how to search without `rg`.
+- Unverified candidates carry no severity. WCAG reviews convert `color(srgb ...)` values before computing contrast and keep manual criteria at `Needs evidence`.
+- The PHPStan, CI/CD, migration, block, test strategy, plugin and performance skills have a short Applicability note for projects that lack the usual setup.
+
+### Fixed
+
+- The theme skill no longer asks for a `wp theme list` field that does not exist. It reads the parent theme from the `template` and `stylesheet` options instead.
+
 ## [2.0.2] - 2026-10-10
 
 ### Added
@@ -74,7 +87,8 @@ The first version recorded in this repository.
 - A physical Claude plugin mirror and Python/PowerShell manual installation entrypoints.
 - Distribution regression tests and command migration support.
 
-[Unreleased]: https://github.com/ehsanenaloo/wordpress-devkit/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/ehsanenaloo/wordpress-devkit/compare/v2.0.3...HEAD
+[2.0.3]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.3
 [2.0.2]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.2
 [2.0.1]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.1
 [2.0.0]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.1

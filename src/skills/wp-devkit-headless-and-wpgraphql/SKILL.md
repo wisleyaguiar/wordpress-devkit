@@ -7,6 +7,10 @@ description: "Build, debug or review decoupled WordPress with WPGraphQL: schema 
 
 Read `references/engineering-contract.md` first. Review requests stay read-only: assess, explain and recommend without edits, rebuild or revalidation triggers, cache purges, credential creation, or sending queries that mutate data. Use the implementation path only when the request authorizes changes.
 
+## Applicability
+
+Confirm that WPGraphQL is active (plugin list, `register_graphql_*`, a `/graphql` route) and that a separate frontend exists. If neither exists, report `Not used in this project`. A plugin that calls another service over GraphQL is a client, and out of scope.
+
 ## Inputs to establish
 
 WordPress, WPGraphQL (and WPGraphQL for ACF, Smart Cache) versions and settings (introspection, depth, batching, endpoint restriction, debug); frontend framework and version with its caching model; query documents or fragments; visibility policy for draft/private/password-protected/embargoed content; preview credential and token flow; cache layers (object, GraphQL, framework, CDN) and who purges them; hosting topology (CMS hostname, redirects of the theme front end); multisite and translation plugins.

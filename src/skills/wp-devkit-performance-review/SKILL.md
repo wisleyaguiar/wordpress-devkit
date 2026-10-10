@@ -9,6 +9,10 @@ Read `references/engineering-contract.md` first. A review request is read-only: 
 
 Hand off: security of an endpoint to `wp-devkit-security-review`; WooCommerce HPOS order APIs to `wp-devkit-woocommerce-dev`; WP-CLI batch runbooks to `wp-devkit-wpcli-and-ops`; schema backfills to `wp-devkit-migration-upgrade-review`; accessibility of loading states to `wp-devkit-wcag-review`.
 
+## Applicability
+
+If there is no budget or baseline, report findings as hypotheses and name the measurement that would settle each one. A read-only kit: `curl -w "%{time_starttransfer}"` on a URL, `wp cron event list`, and a `SELECT` of autoloaded option size. Check host load and mount type before trusting local timings.
+
 ## Inputs
 
 The slow journey (URL, role, action), data volume (posts, meta rows, users, orders, sites), budget (e.g. TTFB p75, LCP/INP/CLS p75, queries per request, memory), baseline numbers, cache and CDN topology (page cache, persistent object cache backend, host), authentication state, and available profilers. Without a baseline or budget, say the task is a hypothesis list, not a performance finding.

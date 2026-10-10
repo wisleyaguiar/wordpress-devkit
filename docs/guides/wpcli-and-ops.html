@@ -30,12 +30,12 @@ Separate confirmed findings from candidates and state the evidence and checks yo
 </ul>
 <h2>How a review runs</h2>
 <ol>
-<li>Read the command source, <code>wp-cli.yml</code>, aliases and scripts without loading WordPress: a command that loads WordPress runs the project's bootstrap, so "read-only" is not a property of the verb.</li>
+<li>Read the command source, <code>wp-cli.yml</code>, aliases and scripts without loading WordPress: a command that loads WordPress runs the project's bootstrap, so "read-only" is not a property of the verb. Contract item 12 allows list and get reads only on a local or disposable copy you trust.</li>
 <li>Confirm target identity: <code>--path</code>, <code>--url</code>, alias, DB prefix, network vs site scope, environment. Check the installed <code>wp help &lt;command&gt;</code> before assuming flags such as <code>--dry-run</code> exist; <code>--dry-run</code> is per command.</li>
 <li>Classify each operation: inventory, diagnostic with effects (<code>cron event run</code>, <code>cache flush</code>, <code>eval</code>), reversible, irreversible. For irreversible ones require a verified backup, a dry run, scope and approval.</li>
 <li>For code: argument validation before writes, stable keyed batching with a fixed upper bound, per-query and per-write error handling, truthful counts and non-zero exit on partial failure, site context restored on every path, dry run with zero side effects.</li>
 <li>For runbooks: preconditions, exact commands, expected output, independent verification, rollback with a rehearsed restore, abort criteria, redacted logs.</li>
-<li>Describe the plan and verification without running maintenance or mutating commands. Classify per the contract; use <code>insufficient evidence</code> when target, version or backup state cannot be established.
+<li>Describe the plan and verification without running maintenance or mutating commands (item 12 reads excepted). Classify per the contract; use <code>insufficient evidence</code> when target, version or backup state cannot be established.
 
 Read <code>references/wpcli-and-ops-workbook.md</code> for symptom triage, worked decisions, benign look-alikes and verification. Load topic references only when in scope:
 

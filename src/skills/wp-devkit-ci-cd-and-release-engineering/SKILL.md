@@ -7,6 +7,10 @@ description: "Build, debug or review GitHub Actions CI/CD for WordPress plugins,
 
 Read `references/engineering-contract.md` first. Review requests stay read-only: assess, explain and recommend without editing workflows, running pipelines, building or publishing releases, pushing tags, committing to SVN, or touching deploy targets and secrets. Use the implementation path only when the request authorizes changes. Development does not imply publication.
 
+## Applicability
+
+If the project has no CI by decision (no `.github/workflows` and no other CI file), say that CI is absent and review the local gate, packaging and release scripts instead: read each script, list what it checks, which exit status it returns and what a failure does. `Not used in this project` applies to CI only. A missing `.github` folder is not an error.
+
 ## Inputs to establish
 
 CI provider and workflow files; branch and tag protection, required checks, environments and reviewers (these live in repository settings and are often not visible: ask or mark unverified); declared support policy (`Requires at least`, `Requires PHP`, `Tested up to`); lockfiles and toolchain; packaging method and exclusion list; release channels (WordPress.org, GitHub release, host deploy, Composer); credential locations; data migrations and the rollback limit.

@@ -7,6 +7,10 @@ description: "Plan, write, debug or review WordPress tests: choose the layer (un
 
 Read `references/engineering-contract.md` first. Review requests stay read-only: assess, explain and recommend without edits, mutations or untrusted runtime execution. Use the implementation path only when the request authorizes changes.
 
+## Applicability
+
+Find custom test runners as well as PHPUnit and Playwright: WP-CLI `eval-file` scripts, Node `*.mjs` tests and shell gates. For each one, check that it sets a non-zero exit status on failure and that the project gate runs it.
+
 ## Boundary with sibling skills
 
 This skill decides what to test, at which layer, how to isolate it and whether the run proves anything. Domain correctness belongs to the owner skill (`wp-devkit-security-review`, `wp-devkit-woocommerce-dev`, `wp-devkit-rest-api-development`, `wp-devkit-block-development`, `wp-devkit-accessibility-review`). Static typing is `wp-devkit-phpstan-review`; pipeline design is `wp-devkit-ci-cd-and-release-engineering`. Use this skill when the question is "does a test exist that would have caught this?".

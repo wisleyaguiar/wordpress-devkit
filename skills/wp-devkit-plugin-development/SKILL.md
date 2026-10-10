@@ -7,6 +7,10 @@ description: "Build, debug or review WordPress plugin lifecycle, hooks, upgrade 
 
 Read `references/engineering-contract.md` first. Review requests stay read-only: assess, explain and recommend without edits, mutations or untrusted runtime execution. Use the implementation path only when the request authorizes changes.
 
+## Applicability
+
+Check uninstall completeness. List every option, transient, user meta, post meta, table, cron event and capability the plugin writes, then compare the list with `uninstall.php` and the deactivation hook. A key that is written and never removed is a candidate; say who can reach the data.
+
 ## Inputs and scope
 
 Plugin entry file, loading mode (regular, network-activated, must-use, drop-in), distribution channel (WordPress.org, private ZIP, Composer), declared and actually supported WordPress/PHP versions, multisite yes/no, failing request or symptom, existing tests.

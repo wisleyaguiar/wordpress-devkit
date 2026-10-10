@@ -19,12 +19,12 @@ Plugin hooks, upgrade logic and storage design go to `wp-devkit-plugin-developme
 
 ## Code Review Workflow
 
-1. Read the command source, `wp-cli.yml`, aliases and scripts without loading WordPress: a command that loads WordPress runs the project's bootstrap, so "read-only" is not a property of the verb.
+1. Read the command source, `wp-cli.yml`, aliases and scripts without loading WordPress: a command that loads WordPress runs the project's bootstrap, so "read-only" is not a property of the verb. Contract item 12 allows list and get reads only on a local or disposable copy you trust.
 2. Confirm target identity: `--path`, `--url`, alias, DB prefix, network vs site scope, environment. Check the installed `wp help <command>` before assuming flags such as `--dry-run` exist; `--dry-run` is per command.
 3. Classify each operation: inventory, diagnostic with effects (`cron event run`, `cache flush`, `eval`), reversible, irreversible. For irreversible ones require a verified backup, a dry run, scope and approval.
 4. For code: argument validation before writes, stable keyed batching with a fixed upper bound, per-query and per-write error handling, truthful counts and non-zero exit on partial failure, site context restored on every path, dry run with zero side effects.
 5. For runbooks: preconditions, exact commands, expected output, independent verification, rollback with a rehearsed restore, abort criteria, redacted logs.
-6. Describe the plan and verification without running maintenance or mutating commands. Classify per the contract; use `insufficient evidence` when target, version or backup state cannot be established.
+6. Describe the plan and verification without running maintenance or mutating commands (item 12 reads excepted). Classify per the contract; use `insufficient evidence` when target, version or backup state cannot be established.
 
 Read `references/wpcli-and-ops-workbook.md` for symptom triage, worked decisions, benign look-alikes and verification. Load topic references only when in scope:
 
@@ -42,7 +42,7 @@ Read `references/wpcli-and-ops-workbook.md` for symptom triage, worked decisions
 
 ## Search Patterns for Quick Detection
 
-Run only relevant groups from the first-party root; narrow `.`. The commands read files and never run WP-CLI or load WordPress. Hits are leads, not findings; no hit proves nothing (scripts, CI files and multiline calls hide matches). Exit 0 match, 1 none, 2 error.
+Run only relevant groups from the first-party root; narrow `.`. These search commands read files and never run WP-CLI or load WordPress; runtime reads follow contract item 12. Hits are leads, not findings; no hit proves nothing (scripts, CI files and multiline calls hide matches). Exit 0 match, 1 none, 2 error.
 
 ```sh
 # Commands, config, aliases

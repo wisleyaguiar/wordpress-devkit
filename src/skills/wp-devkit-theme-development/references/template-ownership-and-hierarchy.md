@@ -21,7 +21,9 @@ Global Styles customizations are stored in a `wp_global_styles` post per theme a
 ## Confirm which layer is rendering (read-only where possible)
 
 ```sh
-wp theme list --fields=name,status,version,parent
+wp theme list --fields=name,status,version
+wp option get template
+wp option get stylesheet
 wp eval 'var_dump( wp_is_block_theme() );'
 wp post list --post_type=wp_template,wp_template_part,wp_global_styles --post_status=any --fields=ID,post_type,post_name,post_status,post_modified
 ```

@@ -9,6 +9,10 @@ Read `references/engineering-contract.md` first. A review request is read-only: 
 
 Hand off: WP-CLI runbook mechanics to `wp-devkit-wpcli-and-ops`; plugin activation/hook lifecycle design to `wp-devkit-plugin-development`; WooCommerce order API details to `wp-devkit-woocommerce-dev`; release pipeline and rollback of packages to `wp-devkit-ci-cd-and-release-engineering`; query speed of the backfill to `wp-devkit-performance-review`.
 
+## Applicability
+
+Confirm that the project stores a schema or data version, creates tables, runs backfills or has upgrade routines (`dbDelta`, `*_db_version`, `register_activation_hook`, `upgrader_process_complete`). Activation hooks that only register rewrites, roles or cron events are not upgrade routines. Report which exist. If none exists, report `Not used in this project` and review only what the request names.
+
 ## Inputs
 
 Current and target schema/data versions, the data owner and authoritative storage, supported old/new code overlap (rolling deploy, auto-updates, multiple web nodes), row volume and growth, database engine and version, multisite scope, existing runner and checkpoints, and a verified backup/restore path with a known restore time. If any is missing, list it as an assumption; do not guess volume.

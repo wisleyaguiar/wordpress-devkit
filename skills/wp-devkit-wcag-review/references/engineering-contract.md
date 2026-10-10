@@ -10,3 +10,5 @@ Apply this contract before WCAG heuristics. A match in source or an automated re
 6. Do not claim WCAG conformance or certification from a partial audit. Use `Needs evidence` when a required environment or manual test was not executed.
 7. Redact secrets and personal data from screenshots, URLs, logs and fixtures. Do not execute untrusted project code or downloaded scripts merely to inspect it.
 8. Report the exact commands, tool versions, browsers, assistive technologies, viewport/zoom settings and unexecuted checks.
+9. Read contrast from rendered pixels, or convert the value first: `getComputedStyle` can return colors such as `color(srgb ...)` that give false ratios when read as hex.
+10. In a read-only or partial audit, a criterion that needs a manual or assistive-technology test stays `Needs evidence`. Only a criterion fully decided by the executed checks can be `Pass`.

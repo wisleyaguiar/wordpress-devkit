@@ -7,6 +7,10 @@ description: "Build, debug or review Gutenberg blocks: block.json registration, 
 
 Read `references/engineering-contract.md` first. Review requests stay read-only: assess, explain and recommend without edits, mutations, builds that rewrite files, or untrusted runtime execution. Implementation applies only when the request authorizes changes.
 
+## Applicability
+
+If every block is dynamic (`save` returns `null` or `InnerBlocks.Content`), skip the save, deprecation and invalid-content steps and say why. Review registration, attributes and server render.
+
 ## Inputs
 
 Block name, oldest and newest supported WordPress, `block.json`, build command, emitted `build/` assets, one saved-content fixture per historical form, and the failing action (insert, save, reopen, frontend, second instance). Inspect project evidence before asking; ask only what changes the decision.

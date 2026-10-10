@@ -9,6 +9,10 @@ Read `references/engineering-contract.md` first. A review request is read-only: 
 
 Hand off: PHPCS/WordPress Coding Standards, PHPUnit and browser tests to `wp-devkit-test-strategy`; CI workflow design and release gates to `wp-devkit-ci-cd-and-release-engineering`; plugin architecture changes to `wp-devkit-plugin-development`; security conclusions to `wp-devkit-security-review` (types do not model permissions).
 
+## Applicability
+
+Confirm that a PHPStan setup exists: `phpstan.neon`, `phpstan.neon.dist` or `phpstan.dist.neon`, a `phpstan/phpstan` Composer dependency, or a CI step. If none exists, report `Not used in this project` with the one INFO coverage gap (no static-analysis gate) and stop. Create a configuration only when the request authorizes implementation.
+
 ## Inputs
 
 `composer.lock` (PHPStan, extension, stubs versions), PHP version(s) the code supports and the CI PHP, the exact local and CI commands, the effective config file, first-party source inventory, baseline and ignore policy, and whether WooCommerce, WP-CLI, ACF or other plugin APIs are used. Use `vendor/bin/phpstan diagnose` and `--version` output when execution is allowed.

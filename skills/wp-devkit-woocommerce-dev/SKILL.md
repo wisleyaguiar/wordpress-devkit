@@ -7,6 +7,10 @@ description: "Build, debug or review WooCommerce extensions: HPOS order access, 
 
 Read `references/engineering-contract.md` first. Review requests stay read-only: assess, explain and recommend without edits, store mutations, mutating WP-CLI (`wp wc hpos sync|enable|cleanup`), or running untrusted code. Use the implementation path only when the request authorizes changes.
 
+## Applicability
+
+Confirm that WooCommerce is active (plugin list) or that the code calls `wc_`, `WC_` or `woocommerce_` APIs. If not, report `Not used in this project` and stop.
+
 ## Inputs to establish (from the project first, then ask)
 
 WooCommerce, WordPress and PHP versions; order storage (`woocommerce_custom_orders_table_enabled`) and sync option; checkout type (block or shortcode); active gateways and their provider contract; tax-inclusive setting and currencies; Action Scheduler runner (WP-CLI, loopback, WP-Cron); installed extensions touching orders or checkout; whether a disposable store exists.
