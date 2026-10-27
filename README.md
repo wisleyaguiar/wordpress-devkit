@@ -68,10 +68,21 @@ Use `python3` where that is your interpreter command. Run the installation comma
 
 | Mode | What you get | Activation |
 |---|---|---|
-| Claude plugin | Skills plus `/wp-devkit:` commands | Load the checkout through the supported plugin flow |
+| Claude plugin | Skills plus `/wp-devkit:` commands | Add the GitHub marketplace, or load the checkout for one session |
 | Claude manual skills | Complete canonical workflows and references | Request the installed skill by name or in natural language |
 | Codex manual skills | Complete canonical workflows and references | Select the installed skill or use its explicit selector |
 | Antigravity plugin or manual skills | Complete workflows with native Google packaging | Select a discovered skill by name |
+
+**Claude plugin from the GitHub marketplace**
+
+The repository is its own Claude Code marketplace, defined in `.claude-plugin/marketplace.json`. No clone is needed. In Claude Code, run:
+
+```text
+/plugin marketplace add wisleyaguiar/wordpress-devkit
+/plugin install wp-devkit@wordpress-devkit
+```
+
+Claude Code 2.1.275 or later also accepts one step: `/plugin install wp-devkit --marketplace wisleyaguiar/wordpress-devkit`. Run `/plugin marketplace update wordpress-devkit` to fetch new releases.
 
 **Claude plugin session**
 

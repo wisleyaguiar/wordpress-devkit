@@ -4,6 +4,10 @@ All notable changes to this project are recorded here. The format follows [Keep 
 
 ## [Unreleased]
 
+### Added
+
+- The repository is now a Claude Code marketplace (`.claude-plugin/marketplace.json`), so the plugin installs from its GitHub URL.
+
 ## [2.0.3] - 2026-10-10
 
 ### Changed
