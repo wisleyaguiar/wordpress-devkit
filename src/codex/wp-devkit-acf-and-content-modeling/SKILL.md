@@ -1,6 +1,6 @@
 ---
 name: wp-devkit-acf-and-content-modeling
-description: Design, debug or review WordPress content models and Advanced Custom Fields. Use for CPT/taxonomy choices, field groups, JSON/PHP schema drift, return formats, metadata queries and field migrations.
+description: Design, debug or review WordPress content models and Advanced Custom Fields or its fork Secure Custom Fields (SCF). Use for CPT/taxonomy choices, field groups, JSON/PHP schema drift, return formats, metadata queries and field migrations.
 ---
 
 # WordPress DevKit for Codex

@@ -8,6 +8,10 @@ All notable changes to this project are recorded here. The format follows [Keep 
 
 - The repository is now a Claude Code marketplace (`.claude-plugin/marketplace.json`), so the plugin installs from its GitHub URL.
 
+### Changed
+
+- The ACF skill names Secure Custom Fields (SCF) in its description, so it is selected for SCF projects too.
+
 ## [2.0.3] - 2026-10-10
 
 ### Changed
