@@ -24,3 +24,5 @@ Thumbs.db
 # Local install locks and workspaces
 .wp-devkit.lock
 .wp-devkit-*
+
+.serena/
