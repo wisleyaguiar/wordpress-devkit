@@ -6,6 +6,7 @@ All notable changes to this project are recorded here. The format follows [Keep 
 
 ### Added
 
+- New `wp-devkit-elementor-development` skill with the `/wp-devkit:elementor` and `/wp-devkit:elementor-review` commands. It covers safe edits of Elementor page data, templates and kits, custom widgets, dynamic tags, Pro form actions and Theme Builder locations, blank or stale renders, free versus Pro checks, and proving an extension works on a staging site. Parts are adapted from [Mekko Digital elementor-skills](https://github.com/Mekko-Digital/elementor-skills) under the MIT license; the notice ships with the skill.
 - The repository is now a Claude Code marketplace (`.claude-plugin/marketplace.json`), so the plugin installs from its GitHub URL.
 
 ### Changed

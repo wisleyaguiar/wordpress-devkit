@@ -18,6 +18,7 @@ body:
         - wp-devkit-admin-ui-development
         - wp-devkit-block-development
         - wp-devkit-ci-cd-and-release-engineering
+        - wp-devkit-elementor-development
         - wp-devkit-headless-and-wpgraphql
         - wp-devkit-migration-upgrade-review
         - wp-devkit-performance-review

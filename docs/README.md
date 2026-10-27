@@ -10,8 +10,8 @@ Start with [the field guide](index.html) or [the guide library](guides/index.htm
 - [Review to fix](guides/review-to-fix.html)
 - [Release checklist](guides/release-checklist.html)
 - [Questions and troubleshooting](guides/faq.html)
-- [All 20 specialist guides](guides/index.html)
-- [All 41 Claude commands](commands.html)
+- [All 21 specialist guides](guides/index.html)
+- [All 43 Claude commands](commands.html)
 
 ## Read it online
 
