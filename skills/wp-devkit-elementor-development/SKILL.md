@@ -56,7 +56,7 @@ Read-only leads from the project root; matches are candidates, not findings. Exi
 ```sh
 rg -n -g '*.php' -g '!vendor' -g '!node_modules' -e 'elementor/widgets/register|elementor/widgets/widgets_registered|Widget_Base|Atomic_Widget_Base|elementor/elements/categories_registered' .
 rg -n -g '*.php' -g '!vendor' -g '!node_modules' -e 'elementor/dynamic_tags/register|DynamicTags\\(Data_)?Tag|elementor_pro/forms/actions/register|Action_Base|elementor/theme/register_locations|elementor_theme_do_location' .
-rg -n -g '*.php' -g '!vendor' -g '!node_modules' -e '->get_settings\(|\{\{\{|echo\s+\$settings|_elementor_data|_elementor_page_settings' .
+rg -n -g '*.php' -g '!vendor' -g '!node_modules' -e '->get_settings(_for_display)?\(|\{\{\{|echo[^;]*\$settings|_elementor_data|_elementor_page_settings' .
 rg -n -g '*.php' -g '*.js' -g '!vendor' -g '!node_modules' -e 'elementor/frontend/init|elementorFrontend\.hooks|elementor/widget/render_content|elementor/frontend/the_content' .
 ```
 
