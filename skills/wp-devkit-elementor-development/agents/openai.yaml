@@ -1,0 +1,4 @@
+interface:
+  display_name: "Elementor pages and extensions"
+  short_description: "Elementor pages and extensions"
+  default_prompt: "Use $wp-devkit-elementor-development for the WordPress task I describe, and report evidence and limits."

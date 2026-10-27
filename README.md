@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/devkit-banner.svg" alt="WordPress DevKit: evidence-based WordPress engineering skills for AI coding agents; 20 specialist skills and 41 Claude commands" width="100%">
+  <img src="docs/assets/devkit-banner.svg" alt="WordPress DevKit: evidence-based WordPress engineering skills for AI coding agents; 21 specialist skills and 43 Claude commands" width="100%">
 </p>
 
 # WordPress DevKit
@@ -9,7 +9,7 @@
 [![CI](https://github.com/ehsanenaloo/wordpress-devkit/actions/workflows/ci.yml/badge.svg)](https://github.com/ehsanenaloo/wordpress-devkit/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/ehsanenaloo/wordpress-devkit?display_name=tag)](https://github.com/ehsanenaloo/wordpress-devkit/releases)
-![Skills](https://img.shields.io/badge/skills-20-brightgreen)
+![Skills](https://img.shields.io/badge/skills-21-brightgreen)
 ![Agents](https://img.shields.io/badge/agents-Claude%20%7C%20ChatGPT%20%7C%20Codex%20%7C%20Antigravity-informational)
 
 Ask your AI agent to review a plugin, trace a slow query, build a block, harden a REST route or prepare a release. DevKit gives it a practitioner's workflow for each job, the WordPress-specific references behind it, and a contract that keeps its answers honest: **no finding without a traced path, no pass without a check that actually ran.**
@@ -98,7 +98,7 @@ This loads the plugin for your current CLI session. After starting it, check tha
 
 The root `plugin.json` follows the portable format in [OpenAI plugin documentation](https://developers.openai.com/plugins/build/plugins). It discovers the self-contained `skills/` tree. The Claude manifest remains in `.claude-plugin/plugin.json`. Both packages share one identity and prepared version.
 
-The included `.agents/plugins/marketplace.json` exposes **WordPress DevKit** as an available plugin. Its `./` source resolves to the package root, where `plugin.json` and all 20 complete skills live. Extract the archive before using it; point the client at the extracted `wp-devkit` folder.
+The included `.agents/plugins/marketplace.json` exposes **WordPress DevKit** as an available plugin. Its `./` source resolves to the package root, where `plugin.json` and all 21 complete skills live. Extract the archive before using it; point the client at the extracted `wp-devkit` folder.
 
 **ChatGPT desktop (Work mode or Codex)**
 
@@ -143,7 +143,7 @@ python scripts/install.py --agent antigravity
 
 The default is `~/.gemini/config/skills` for Antigravity 2.0 and standalone IDE. For CLI global skills, set `--destination "~/.gemini/antigravity-cli/skills"`. For one WordPress project, set `--destination "C:\path\to\wordpress-project\.agents\skills"`. Keep destinations outside this source checkout. PowerShell supports `-Agent antigravity`; selection, status, replacement and removal use the same options as other agents.
 
-Start a new conversation and request `wp-devkit-security-review` by name. Antigravity 2.0 and CLI also support `/wp-devkit-security-review`. These are skill names; the 41 Claude namespaced commands remain Claude-specific. See Google's official [plugin guide](https://www.antigravity.google/docs/plugins/) and [skill locations](https://www.antigravity.google/docs/skills). Actual Antigravity loading is a separate check from packaging.
+Start a new conversation and request `wp-devkit-security-review` by name. Antigravity 2.0 and CLI also support `/wp-devkit-security-review`. These are skill names; the 43 Claude namespaced commands remain Claude-specific. See Google's official [plugin guide](https://www.antigravity.google/docs/plugins/) and [skill locations](https://www.antigravity.google/docs/skills). Actual Antigravity loading is a separate check from packaging.
 
 **Manual skills — choose one agent**
 
@@ -171,7 +171,7 @@ Manual installation copies full canonical directories and references. Defaults a
 
 ### Install only the skills you need
 
-Use a full skill name from the catalog. Repeat `--skill` to choose more than one; omit it to install all 20.
+Use a full skill name from the catalog. Repeat `--skill` to choose more than one; omit it to install all 21.
 
 ```sh
 python scripts/install.py --agent codex --skill wp-devkit-security-review --preview
@@ -224,7 +224,7 @@ A useful result separates confirmed findings from candidates, cites file and lin
 
 ## Skills
 
-All 20 skills share the same shape: a short workflow in `SKILL.md`, topic references loaded only when the task needs them, a read-only review path, an implementation path, and acceptance checks that state what a pass does not prove.
+All 21 skills share the same shape: a short workflow in `SKILL.md`, topic references loaded only when the task needs them, a read-only review path, an implementation path, and acceptance checks that state what a pass does not prove.
 
 <!-- skills-table:start -->
 | Guide | Skill | Focus |
@@ -234,6 +234,7 @@ All 20 skills share the same shape: a short workflow in `SKILL.md`, topic refere
 | [admin-ui-development](docs/guides/admin-ui-development.html) | `wp-devkit-admin-ui-development` | Build, debug or review WordPress admin settings pages, list tables, custom save handlers and editor-side tools. |
 | [block-development](docs/guides/block-development.html) | `wp-devkit-block-development` | Build, debug or review Gutenberg blocks. |
 | [ci-cd-and-release-engineering](docs/guides/ci-cd-and-release-engineering.html) | `wp-devkit-ci-cd-and-release-engineering` | Build, debug or review GitHub Actions CI/CD for WordPress plugins, themes and sites. |
+| [elementor-development](docs/guides/elementor-development.html) | `wp-devkit-elementor-development` | Build, debug or review Elementor and Elementor Pro sites. |
 | [headless-and-wpgraphql](docs/guides/headless-and-wpgraphql.html) | `wp-devkit-headless-and-wpgraphql` | Build, debug or review decoupled WordPress with WPGraphQL. |
 | [migration-upgrade-review](docs/guides/migration-upgrade-review.html) | `wp-devkit-migration-upgrade-review` | Plan, debug, implement or review WordPress schema and data upgrades. |
 | [performance-review](docs/guides/performance-review.html) | `wp-devkit-performance-review` | Investigate and improve measured WordPress performance. |
@@ -266,6 +267,7 @@ Short commands request quick scans; `-review` variants request broader reviews. 
 | [Admin interfaces](docs/guides/admin-ui-development.html) | `/wp-devkit:admin` | `/wp-devkit:admin-review` |
 | [Gutenberg blocks](docs/guides/block-development.html) | `/wp-devkit:block` | `/wp-devkit:block-review` |
 | [CI/CD & release engineering](docs/guides/ci-cd-and-release-engineering.html) | `/wp-devkit:release` | `/wp-devkit:release-review` |
+| [Elementor pages & extensions](docs/guides/elementor-development.html) | `/wp-devkit:elementor` | `/wp-devkit:elementor-review` |
 | [Headless & WPGraphQL](docs/guides/headless-and-wpgraphql.html) | `/wp-devkit:headless` | `/wp-devkit:headless-review` |
 | [Migration & upgrades](docs/guides/migration-upgrade-review.html) | `/wp-devkit:migration` | `/wp-devkit:migration-review` |
 | [Performance review](docs/guides/performance-review.html) | `/wp-devkit:performance` | `/wp-devkit:performance-review` |
@@ -284,7 +286,7 @@ Short commands request quick scans; `-review` variants request broader reviews. 
 
 **Environment inventory:** `/wp-devkit:doctor <target-path>` routes to the onboarding skill's Doctor workflow. It performs no repairs; trusted container bootstrap requires separate execution authorization.
 
-Browse the [searchable command catalog](docs/commands.html) for all 41 commands and their purposes.
+Browse the [searchable command catalog](docs/commands.html) for all 43 commands and their purposes.
 
 ## Doctor and evidence reports
 

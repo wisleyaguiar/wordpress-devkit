@@ -1,6 +1,6 @@
 # WordPress DevKit for Google Antigravity
 
-Use these 20 specialist skills to build, debug or review WordPress projects. Each skill includes its complete workflow, engineering contract, domain workbook and selected references. This is an instruction pack maintained by Ehsan Enaloo under the MIT License (see the `LICENSE` file in this folder).
+Use these 21 specialist skills to build, debug or review WordPress projects. Each skill includes its complete workflow, engineering contract, domain workbook and selected references. This is an instruction pack maintained by Ehsan Enaloo under the MIT License (see the `LICENSE` file in this folder).
 
 ## Install the plugin
 
@@ -26,7 +26,7 @@ Use wp-devkit-security-review to review wp-content/plugins/example-plugin.
 Keep the review read-only. Report the evidence, impact and untested areas.
 ```
 
-Antigravity 2.0 and CLI can invoke a skill as `/wp-devkit-security-review`. Confirm discovery in your installed client before relying on it. The 41 Claude namespaced commands are not part of this native Google package.
+Antigravity 2.0 and CLI can invoke a skill as `/wp-devkit-security-review`. Confirm discovery in your installed client before relying on it. The 43 Claude namespaced commands are not part of this native Google package.
 
 ## Update carefully
 

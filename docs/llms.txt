@@ -20,6 +20,7 @@
 - [Theme development](guides/theme-development.html): Work with classic, hybrid, child and block themes without losing saved customizations.
 - [Gutenberg blocks](guides/block-development.html): Review metadata, editor behavior and existing saved-content compatibility.
 - [WooCommerce extensions](guides/woocommerce-dev.html): Review orders, checkout, payments and jobs with explicit store context.
+- [Elementor pages & extensions](guides/elementor-development.html): Edit page data safely, build widgets and tags, and debug blank or stale renders.
 - [REST API development](guides/rest-api-development.html): Review route permissions, request validation and response contracts.
 - [Headless & WPGraphQL](guides/headless-and-wpgraphql.html): Review schemas, preview flows and content invalidation across frontend boundaries.
 - [ACF & content modeling](guides/acf-and-content-modeling.html): Choose stable content structures and inspect field-group drift.
@@ -36,4 +37,4 @@
 
 ## Commands
 
-- [Claude command catalog](commands.html): All 41 commands; these are not Codex slash commands.
+- [Claude command catalog](commands.html): All 43 commands; these are not Codex slash commands.

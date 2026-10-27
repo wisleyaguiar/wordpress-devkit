@@ -1,4 +1,4 @@
-"""Generate the 20 specialist guide pages from the skills they describe, so the guides cannot drift.
+"""Generate the 21 specialist guide pages from the skills they describe, so the guides cannot drift.
 
 Each page keeps the site shell of the existing file (header, navigation, footer) and replaces the title,
 description, lead and article body with content derived from the skill's SKILL.md and the command catalog.
@@ -17,6 +17,7 @@ TITLES = {
     'admin-ui-development': 'Admin interfaces',
     'block-development': 'Gutenberg blocks',
     'ci-cd-and-release-engineering': 'CI/CD and release engineering',
+    'elementor-development': 'Elementor pages and extensions',
     'headless-and-wpgraphql': 'Headless and WPGraphQL',
     'migration-upgrade-review': 'Migrations and upgrades',
     'performance-review': 'Performance',
