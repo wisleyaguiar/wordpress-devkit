@@ -230,7 +230,7 @@ All 20 skills share the same shape: a short workflow in `SKILL.md`, topic refere
 | Guide | Skill | Focus |
 |---|---|---|
 | [accessibility-review](docs/guides/accessibility-review.html) | `wp-devkit-accessibility-review` | Build, debug or review accessible WordPress controls. |
-| [acf-and-content-modeling](docs/guides/acf-and-content-modeling.html) | `wp-devkit-acf-and-content-modeling` | Design, debug or review WordPress content models and ACF. |
+| [acf-and-content-modeling](docs/guides/acf-and-content-modeling.html) | `wp-devkit-acf-and-content-modeling` | Design, debug or review WordPress content models and ACF or its fork Secure Custom Fields (SCF). |
 | [admin-ui-development](docs/guides/admin-ui-development.html) | `wp-devkit-admin-ui-development` | Build, debug or review WordPress admin settings pages, list tables, custom save handlers and editor-side tools. |
 | [block-development](docs/guides/block-development.html) | `wp-devkit-block-development` | Build, debug or review Gutenberg blocks. |
 | [ci-cd-and-release-engineering](docs/guides/ci-cd-and-release-engineering.html) | `wp-devkit-ci-cd-and-release-engineering` | Build, debug or review GitHub Actions CI/CD for WordPress plugins, themes and sites. |
