@@ -4,6 +4,8 @@ All notable changes to this project are recorded here. The format follows [Keep 
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-11-10
+
 ### Added
 
 - New `wp-devkit-elementor-development` skill with the `/wp-devkit:elementor` and `/wp-devkit:elementor-review` commands. It covers safe edits of Elementor page data, templates and kits, custom widgets, dynamic tags, Pro form actions and Theme Builder locations, blank or stale renders, free versus Pro checks, and proving an extension works on a staging site. Parts are adapted from [Mekko Digital elementor-skills](https://github.com/Mekko-Digital/elementor-skills) under the MIT license; the notice ships with the skill.
@@ -99,7 +101,8 @@ The first version recorded in this repository.
 - A physical Claude plugin mirror and Python/PowerShell manual installation entrypoints.
 - Distribution regression tests and command migration support.
 
-[Unreleased]: https://github.com/ehsanenaloo/wordpress-devkit/compare/v2.0.3...HEAD
+[Unreleased]: https://github.com/ehsanenaloo/wordpress-devkit/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.1.0
 [2.0.3]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.3
 [2.0.2]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.2
 [2.0.1]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.1
