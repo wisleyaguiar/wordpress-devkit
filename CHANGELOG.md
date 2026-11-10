@@ -101,8 +101,8 @@ The first version recorded in this repository.
 - A physical Claude plugin mirror and Python/PowerShell manual installation entrypoints.
 - Distribution regression tests and command migration support.
 
-[Unreleased]: https://github.com/ehsanenaloo/wordpress-devkit/compare/v2.1.0...HEAD
-[2.1.0]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.1.0
+[Unreleased]: https://github.com/wisleyaguiar/wordpress-devkit/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/wisleyaguiar/wordpress-devkit/releases/tag/v2.1.0
 [2.0.3]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.3
 [2.0.2]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.2
 [2.0.1]: https://github.com/ehsanenaloo/wordpress-devkit/releases/tag/v2.0.1
