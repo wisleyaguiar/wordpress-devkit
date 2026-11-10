@@ -1,6 +1,6 @@
 ---
 name: wp-devkit-wpcli-and-ops
-description: "Build, debug or review WP-CLI commands and WordPress operations runbooks. Use for serialized-safe search-replace and domain moves, multisite targeting, batch jobs, cron and cache maintenance, backups and recoverable procedures; not application code."
+description: "Build, debug or review WP-CLI commands and WordPress operations runbooks. Use for serialized-safe search-replace and domain moves, copying a production site down to local or staging, multisite targeting, batch jobs, cron and cache maintenance, backups and recoverable procedures; not application code."
 ---
 
 # Scoped commands and operational recovery
@@ -31,6 +31,7 @@ Read `references/wpcli-and-ops-workbook.md` for symptom triage, worked decisions
 - `references/command-authoring.md`: read for registering commands, synopsis, dry run, exit codes, batching and memory, `runcommand`, testing.
 - `references/search-replace-and-migrations.md`: read for domain moves, serialized and JSON data, GUIDs, `--export`, backups, destructive DB commands.
 - `references/multisite-and-batch-operations.md`: read for `--url`/`--network`, site iteration, `switch_to_blog`, long jobs, WP-Cron vs system cron, cache and transient maintenance, locks.
+- `references/pull-and-push-between-environments.md`: read for copying production down to local or staging (database, uploads, local safety, personal data, wp-env, hosts without SSH) and for what may go up to production.
 - `references/environment-safety-and-recovery.md`: read for config precedence and aliases, bootstrap risk, `--skip-plugins`, operation classes, backups and restore rehearsal, CI, runbook template.
 
 ## Implementation workflow

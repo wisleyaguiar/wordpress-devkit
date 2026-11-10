@@ -21,7 +21,7 @@ Write only site-plan/SITE-PLAN.md. Do not build, install or publish anything.</c
 <h2>What it covers</h2>
 <p>The agent loads only the reference that matches the task:</p>
 <ul>
-<li><code>briefing-and-plan-template.md</code>: read for the question bank, question rounds, the direction format, the <code>SITE-PLAN.md</code> template, ready requests and the review checklist.</li>
+<li><code>briefing-and-plan-template.md</code>: read for the question bank, question rounds, the direction format, the <code>SITE-PLAN.md</code> template, ready requests, the <code>AGENTS.md</code> model and the review checklist.</li>
 <li><code>design-and-build-decisions.md</code>: read for design inputs and inventory, the design-to-WordPress map, design gaps, the build approach, the content model, plugin choice and environments.</li>
 </ul>
 <h2>How planning runs</h2>
@@ -30,7 +30,7 @@ Write only site-plan/SITE-PLAN.md. Do not build, install or publish anything.</c
 <li>Brief. Ask at most five questions per round from the question bank, most decisive first; round one always covers hosting, domain, staging and the build tool. Record facts as facts, guesses as assumptions and unknowns as open questions; never invent client data. Gate 1: show the brief summary, get confirmation, then write the plan file with <code>Status: briefing-confirmed</code>.</li>
 <li>Direction. From scratch: offer two or three directions, each with a sitemap, a two-sentence visual thesis with allowed patterns, a build approach and trade-offs. Rewrite any thesis that would fit every site in the sector. From a design: the design is the direction; inventory it and list its gaps instead. Gate 2: the user chooses; set <code>direction-chosen</code>.</li>
 <li>Decisions. Build approach, content model, plugins by need (core features first), environments (build, staging, production and the path between them), editing roles, SEO, privacy law by jurisdiction (an open question for the client), accessibility target and performance budget. Look up current hosting requirements at the official source.</li>
-<li>Plan. Fill the template in the user's language; keep section headings, <code>Status:</code> values and skill names in English. Phase 0 is always a plan task for after approval, never something the planner runs: set up the environments and send a test deploy to staging or production. Every task has a plain description, an acceptance check and a ready request. Set <code>draft</code>.</li>
+<li>Plan. Fill the template in the user's language; keep section headings, <code>Status:</code> values and skill names in English. Phase 0 is always a plan task for after approval, never something the planner runs: set up the environments, send a test deploy to staging or production and write the project context file (<code>AGENTS.md</code>). Every task has a plain description, an acceptance check and a ready request. Set <code>draft</code>.</li>
 <li>Gate 3. Show the summary, the open questions and the risks, then wait. On approval set <code>approved</code> and add a History line. Allow at most two rounds of corrections; after that, list what is still disputed and let the user decide.</li>
 <li>Next step. Point to Phase 0 and its ready request.</li>
 </ol>
@@ -40,7 +40,7 @@ Write only site-plan/SITE-PLAN.md. Do not build, install or publish anything.</c
 <li>Check the structure against the template: every section present, a valid <code>Status:</code> value, History kept.</li>
 <li>Check that facts, assumptions and open questions are separate and that no client fact is invented.</li>
 <li>Check that each decision has a reason and fits the brief: a store needs payment, tax and shipping decisions; two languages need a translation decision; a form needs a destination and a privacy note.</li>
-<li>Check the environments: build, staging and production defined, versions matched, deployment path and rollback stated, Phase 0 present with a test deploy.</li>
+<li>Check the environments: build, staging and production defined, versions matched, deployment path and rollback stated, Phase 0 present with a test deploy and the context file task.</li>
 <li>Check every task: plain description, acceptance check and a ready request that works without any tool the user lacks.</li>
 <li>Check the launch checklist and, for a design-based plan, the gaps list.</li>
 </ol>

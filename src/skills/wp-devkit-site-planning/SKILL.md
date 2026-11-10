@@ -64,7 +64,7 @@ The planning path. `Status:` values are fixed: `briefing-confirmed`, `direction-
 2. Brief. Ask at most five questions per round from the question bank, most decisive first; round one always covers hosting, domain, staging and the build tool. Record facts as facts, guesses as assumptions and unknowns as open questions; never invent client data. Gate 1: show the brief summary, get confirmation, then write the plan file with `Status: briefing-confirmed`.
 3. Direction. From scratch: offer two or three directions, each with a sitemap, a two-sentence visual thesis with allowed patterns, a build approach and trade-offs. Rewrite any thesis that would fit every site in the sector. From a design: the design is the direction; inventory it and list its gaps instead. Gate 2: the user chooses; set `direction-chosen`.
 4. Decisions. Build approach, content model, plugins by need (core features first), environments (build, staging, production and the path between them), editing roles, SEO, privacy law by jurisdiction (an open question for the client), accessibility target and performance budget. Look up current hosting requirements at the official source.
-5. Plan. Fill the template in the user's language; keep section headings, `Status:` values and skill names in English. Phase 0 is always a plan task for after approval, never something the planner runs: set up the environments and send a test deploy to staging or production. Every task has a plain description, an acceptance check and a ready request. Set `draft`.
+5. Plan. Fill the template in the user's language; keep section headings, `Status:` values and skill names in English. Phase 0 is always a plan task for after approval, never something the planner runs: set up the environments, send a test deploy to staging or production and write the project context file (`AGENTS.md`). Every task has a plain description, an acceptance check and a ready request. Set `draft`.
 6. Gate 3. Show the summary, the open questions and the risks, then wait. On approval set `approved` and add a History line. Allow at most two rounds of corrections; after that, list what is still disputed and let the user decide.
 7. Next step. Point to Phase 0 and its ready request.
 
@@ -76,7 +76,7 @@ The plan review path. Read-only: do not edit the plan or any other file.
 2. Check the structure against the template: every section present, a valid `Status:` value, History kept.
 3. Check that facts, assumptions and open questions are separate and that no client fact is invented.
 4. Check that each decision has a reason and fits the brief: a store needs payment, tax and shipping decisions; two languages need a translation decision; a form needs a destination and a privacy note.
-5. Check the environments: build, staging and production defined, versions matched, deployment path and rollback stated, Phase 0 present with a test deploy.
+5. Check the environments: build, staging and production defined, versions matched, deployment path and rollback stated, Phase 0 present with a test deploy and the context file task.
 6. Check every task: plain description, acceptance check and a ready request that works without any tool the user lacks.
 7. Check the launch checklist and, for a design-based plan, the gaps list.
 
@@ -92,11 +92,11 @@ Plan review writes no files; give the result in the reply. The result first, the
 
 - No plan file before Gate 1 (an unattended run writes one and stops at `draft`), and no `approved` without an explicit approval from the user.
 - Every task in Build phases has an acceptance check and a ready request stating that the build is authorized by the approved plan.
-- Phase 0 exists and names the build, staging and production environments and the test deploy.
+- Phase 0 exists and names the build, staging and production environments, the test deploy and the project context file.
 - Facts, assumptions and open questions are separate; nothing in the brief is invented.
 - Running this skill never required installing anything.
 
 ## References
 
-- `references/briefing-and-plan-template.md`: read for the question bank, question rounds, the direction format, the `SITE-PLAN.md` template, ready requests and the review checklist.
+- `references/briefing-and-plan-template.md`: read for the question bank, question rounds, the direction format, the `SITE-PLAN.md` template, ready requests, the `AGENTS.md` model and the review checklist.
 - `references/design-and-build-decisions.md`: read for design inputs and inventory, the design-to-WordPress map, design gaps, the build approach, the content model, plugin choice and environments.
