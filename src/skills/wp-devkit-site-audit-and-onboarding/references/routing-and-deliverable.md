@@ -95,7 +95,7 @@ Bad output (do not do): "CRITICAL: webhook has no signature check" without havin
 
 ## Common first-week outputs
 
-Offer these as follow-up deliverables when the owner wants onboarding, not as part of the read-only pass: a one-page README with run, test and deploy steps; an ownership and escalation table; a list of environment constants and where they are set; a backup and restore drill; a dependency update plan; a minimal CI that runs lint and tests; a risk register fed by the specialist reviews.
+Offer these as follow-up deliverables when the owner wants onboarding, not as part of the read-only pass: a one-page README with run, test and deploy steps; a short `AGENTS.md` for coding agents (where those steps live, the environments by name and standing rules such as never importing a local database into production; no secrets, not served by the site); an ownership and escalation table; a list of environment constants and where they are set; a backup and restore drill; a dependency update plan; a minimal CI that runs lint and tests; a risk register fed by the specialist reviews.
 
 ## Sources
 

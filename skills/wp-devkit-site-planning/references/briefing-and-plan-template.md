@@ -1,6 +1,6 @@
 # Briefing, directions and the plan template
 
-Apply [the engineering contract](engineering-contract.md) first. Contents: question rounds, question bank, direction format, plan template, ready requests, review checklist, sources.
+Apply [the engineering contract](engineering-contract.md) first. Contents: question rounds, question bank, direction format, plan template, ready requests, project context file, review checklist, sources.
 
 ## Question rounds
 
@@ -121,6 +121,9 @@ Rollback: <how to return to the last working version>
 - [ ] 0.3 <keep the plan folder (site-plan/ by default) out of every deploy and package>
   Acceptance: <the deployed files and any release archive contain no plan folder>
   Request: <ready request>
+- [ ] 0.4 <write AGENTS.md at the project root for coding agents (extend an existing one, never replace it): the plan's path, the environments and how to reach them, the deployment path, the standing rules and the run and test commands>
+  Acceptance: <a new agent session can name the plan, the environments and the rules from AGENTS.md alone; the file has no secrets, the site does not serve it and no deploy ships it>
+  Request: <ready request>
 ### Phase 1: <name>
 - [ ] 1.1 <task>
   Acceptance: <check>
@@ -164,6 +167,44 @@ Run the task's acceptance check and report what you could not run.
 - Phase 0 tasks set up the build environment in plain words (a local app, WordPress Playground or the host's staging) and name `wp-devkit-wpcli-and-ops` for moves and URL changes and `wp-devkit-ci-cd-and-release-engineering` for automated deploys.
 - Launch tasks name `wp-devkit-security-review`, `wp-devkit-performance-review` and `wp-devkit-wcag-review`.
 
+## Project context file
+
+Task 0.4 writes `AGENTS.md` at the project root, so each new agent session starts from the plan, the environments and the rules. Many coding agents read `AGENTS.md` on their own. Claude Code, by default, reads it when the project has no `CLAUDE.md`; when one exists, add the line `@AGENTS.md` at its top. If the project already has an `AGENTS.md`, extend it and keep what it says; never replace it. The file points to the plan and does not copy it, so the plan stays the one record of decisions.
+
+- No passwords, keys or customer data.
+- When the project root is also the WordPress root, the web server serves the file unless a rule blocks it; prefer a repository whose web root is a subfolder.
+- Keep it out of deploys and release archives, like the plan folder.
+- Write it in the user's language and update it when an environment, the deployment path or a rule changes.
+
+```markdown
+# <site name>
+
+## Source of truth
+- Plan, decisions and history: <site-plan/SITE-PLAN.md>. Read it before changing the site.
+- After launch, add a History line to the plan for every change.
+
+## Environments
+| Environment | URL | How to reach it |
+|---|---|---|
+| Build | <local URL> | <start command, for example npx wp-env start> |
+| Staging | <URL> | <WP-CLI alias such as @staging, or the host panel> |
+| Production | <URL> | <WP-CLI alias such as @prod, or the host panel> |
+
+Deployment path: <how code reaches staging and production>
+
+## Rules
+- Code goes up through the deployment path. After launch, the database and uploads only come down from production.
+- After launch, never import a local or staging database into production.
+- Test every change on staging before production.
+- No passwords, keys or customer data in this file or in the repository.
+- <rules from the plan, for example: Elementor layouts move as exported templates>
+
+## Commands
+- Start: <command>
+- Checks and tests: <command>
+- Copy production down: <command or runbook>
+```
+
 ## Review checklist
 
 | Check | Finding when |
@@ -173,7 +214,7 @@ Run the task's acceptance check and report what you could not run.
 | Fit | A must-have feature from the brief has no page, content type, plugin or task |
 | Decisions | A build approach, plugin or environment has no reason |
 | Environments | Build and production versions differ, there is no staging, no deployment path or no rollback |
-| Phase 0 | Missing, it has no test deploy, or nothing keeps the plan folder out of deploys |
+| Phase 0 | Missing, it has no test deploy, nothing keeps the plan folder out of deploys, or no task writes the project context file |
 | Tasks | A task has no acceptance check, no ready request, or depends on a tool the user does not have |
 | First use | The task that first brings in WooCommerce, ACF or SCF, Elementor, WPGraphQL or a Playground Blueprint names the skill for that technology, which stops while it is absent |
 | Store, languages, forms | Payment, tax, shipping, translation or form destination decisions are missing |
@@ -187,6 +228,8 @@ Research date: 2026-11-10.
 - https://wordpress.org/documentation/article/settings-reading-screen/ (search engine visibility setting)
 - https://wordpress.org/documentation/article/settings-privacy-screen/ (privacy policy page tool)
 - https://developer.wordpress.org/advanced-administration/security/backup/ (backups)
+- https://agents.md/ (the AGENTS.md format for coding agents)
+- https://code.claude.com/docs/en/memory (Claude Code reads AGENTS.md by default when the project has no CLAUDE.md; the `@AGENTS.md` import)
 - https://www.w3.org/WAI/planning/ (planning and managing accessibility, laws and policies)
 - https://www.w3.org/TR/WCAG22/ (WCAG 2.2)
 - https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm (LGPD, Brazil, Lei 13.709 of 14 August 2018)
