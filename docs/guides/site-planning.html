@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Site planning | WordPress DevKit</title><meta name="description" content="Plan a new WordPress site before building it.">
+<meta name="color-scheme" content="light"><link rel="stylesheet" href="../styles.css"><script defer src="../app.js"></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="shell header-inner">
+<a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">W</span><span>WordPress DevKit<small>THE FIELD GUIDE</small></span></a>
+<nav class="top-nav" aria-label="Primary"><a href="../index.html">Overview</a><a href="../guides/installation.html">Install</a><a href="../guides/index.html" aria-current="page">Guides</a><a href="../commands.html">Commands</a><a href="https://github.com/ehsanenaloo/wordpress-devkit">GitHub ↗</a></nav></div></header>
+<main id="main"><div class="shell page-intro"><p class="breadcrumbs"><a href="../index.html">Home</a> / <a href="index.html">Guides</a></p><p class="eyebrow">WordPress DevKit / Field guide</p><h1>Site planning</h1><p class="lead">Plan a new WordPress site before building it.</p></div><div class="shell doc-layout"><aside class="sidebar"><nav aria-label="Learning path"><p>Getting started</p><a href="quick-start.html">Your first review</a><a href="installation.html">Install for your agent</a><a href="doctor-and-reports.html">Discover the environment</a><a href="review-to-fix.html">Turn a finding into a fix</a><a href="release-checklist.html">Prepare a WordPress release</a><a href="faq.html">Questions &amp; troubleshooting</a><p>Reference</p><a href="index.html">All 22 domain guides</a><a href="../commands.html">All 45 commands</a></nav></aside><article class="prose"><h2>When to use it</h2>
+<p>Plan a new WordPress site before building it: client briefing, a short brainstorm of directions, build, staging and production environments, sitemap, content model, design tokens, plugin needs and phased build tasks in SITE-PLAN.md. Also turns a finished design (image, PDF, HTML, Figma export or the current site) into a WordPress build plan, and reviews an existing plan. Building belongs to the theme, block, ACF, WooCommerce and Elementor skills.</p>
+<h2>Boundaries and hand-offs</h2>
+<ul><li>Inventory of an inherited site or codebase: <code>wp-devkit-site-audit-and-onboarding</code>.</li><li>Building the theme, templates, patterns and <code>theme.json</code>: <code>wp-devkit-theme-development</code>. Layouts and UI states: <code>wp-devkit-ui-design</code>. Custom blocks: <code>wp-devkit-block-development</code>. Content types and fields: <code>wp-devkit-acf-and-content-modeling</code>. Store: <code>wp-devkit-woocommerce-dev</code>. Elementor sites: <code>wp-devkit-elementor-development</code>. Decoupled frontends: <code>wp-devkit-headless-and-wpgraphql</code>.</li><li>Environments and deployment: <code>wp-devkit-playground-development</code>, <code>wp-devkit-wpcli-and-ops</code>, <code>wp-devkit-ci-cd-and-release-engineering</code>.</li><li>Not covered: installing WordPress, buying hosting, writing final copy, producing images or mockups, and legal advice.</li></ul>
+<h2>Ask Claude</h2>
+<p>With the plugin loaded, start or resume a plan. The agent asks before it writes and stops at each approval step:</p>
+<pre><code>/wp-devkit:site-plan &lt;idea, brief or design path&gt;</code></pre>
+<p>Check an existing plan without editing it with <code>/wp-devkit:site-plan-review</code>.</p>
+<h2>Ask Codex, ChatGPT or Antigravity</h2>
+<p>Name the installed skill and describe the site or point to the design.</p>
+<pre><code>$wp-devkit-site-planning
+Plan the WordPress site I describe. Ask before writing and stop for my approval at each step.
+Write only site-plan/SITE-PLAN.md. Do not build, install or publish anything.</code></pre>
+<h2>What it covers</h2>
+<p>The agent loads only the reference that matches the task:</p>
+<ul>
+<li><code>briefing-and-plan-template.md</code>: read for the question bank, question rounds, the direction format, the <code>SITE-PLAN.md</code> template, ready requests and the review checklist.</li>
+<li><code>design-and-build-decisions.md</code>: read for design inputs and inventory, the design-to-WordPress map, design gaps, the build approach, the content model, plugin choice and environments.</li>
+</ul>
+<h2>How planning runs</h2>
+<ol>
+<li>Intake. Look for the plan at the path the user gives, else <code>site-plan/SITE-PLAN.md</code>, else search the project, hidden folders such as <code>.spec/</code> included, for a file named <code>SITE-PLAN.md</code>. If it exists, read <code>Status:</code> and resume at the next step; never overwrite it without asking. List the supplied material and set the size. The <code>site-plan/</code> folder keeps the plan and any design material (<code>site-plan/design/</code>) apart from the code; the user may choose another path at Gate 1. If the folder looks like a site root (<code>wp-load.php</code>, <code>wp-content/</code> or <code>wp-config.php</code>), ask where to save the plan, so client data is not served publicly.</li>
+<li>Brief. Ask at most five questions per round from the question bank, most decisive first; round one always covers hosting, domain, staging and the build tool. Record facts as facts, guesses as assumptions and unknowns as open questions; never invent client data. Gate 1: show the brief summary, get confirmation, then write the plan file with <code>Status: briefing-confirmed</code>.</li>
+<li>Direction. From scratch: offer two or three directions, each with a sitemap, a two-sentence visual thesis with allowed patterns, a build approach and trade-offs. Rewrite any thesis that would fit every site in the sector. From a design: the design is the direction; inventory it and list its gaps instead. Gate 2: the user chooses; set <code>direction-chosen</code>.</li>
+<li>Decisions. Build approach, content model, plugins by need (core features first), environments (build, staging, production and the path between them), editing roles, SEO, privacy law by jurisdiction (an open question for the client), accessibility target and performance budget. Look up current hosting requirements at the official source.</li>
+<li>Plan. Fill the template in the user's language; keep section headings, <code>Status:</code> values and skill names in English. Phase 0 is always a plan task for after approval, never something the planner runs: set up the environments and send a test deploy to staging or production. Every task has a plain description, an acceptance check and a ready request. Set <code>draft</code>.</li>
+<li>Gate 3. Show the summary, the open questions and the risks, then wait. On approval set <code>approved</code> and add a History line. Allow at most two rounds of corrections; after that, list what is still disputed and let the user decide.</li>
+<li>Next step. Point to Phase 0 and its ready request.</li>
+</ol>
+<h2>How a plan review runs</h2>
+<ol>
+<li>Read the plan (the path given, else <code>site-plan/SITE-PLAN.md</code>, else a <code>SITE-PLAN.md</code> found in the project) and the material it names. Do not log in to or change any site the plan names.</li>
+<li>Check the structure against the template: every section present, a valid <code>Status:</code> value, History kept.</li>
+<li>Check that facts, assumptions and open questions are separate and that no client fact is invented.</li>
+<li>Check that each decision has a reason and fits the brief: a store needs payment, tax and shipping decisions; two languages need a translation decision; a form needs a destination and a privacy note.</li>
+<li>Check the environments: build, staging and production defined, versions matched, deployment path and rollback stated, Phase 0 present with a test deploy.</li>
+<li>Check every task: plain description, acceptance check and a ready request that works without any tool the user lacks.</li>
+<li>Check the launch checklist and, for a design-based plan, the gaps list.</li>
+</ol>
+<h2>What you get back</h2>
+<p>Reply in the user's language. When the request gives no clue (only a command or a path), use the language of the plan's own text, not of its fixed English headings.</p><p>Planning: the current <code>Status:</code>, what changed in the plan file, the questions or choices waiting for the user and the next step. Say whether the plan was written to a file or printed, and give its path.</p><p>Plan review writes no files; give the result in the reply. The result first, then findings. Each finding gives the plan section (quote its heading), the gap or contradiction, why it would block or mislead the build, and the smallest correction. Security severities, CWE identifiers and file:line do not apply to plan text. Keep unverified items and questions for the client in a separate list.</p>
+<aside class="callout"><p>Planning writes only the plan file and a plan review edits nothing. Building starts after you approve the plan, one task at a time, with the skill each task names.</p></aside>
+<h2>Where to go next</h2>
+<p>Use <a href="review-to-fix.html">review to fix</a> for a bounded implementation and <a href="doctor-and-reports.html">Doctor and reports</a> for environment and evidence tooling.</p>
+<div class="reading-footer"><a href="index.html">← All guides</a><a href="quick-start.html">Your first review →</a></div></article></div></main><footer class="footer"><div class="shell footer-inner"><p>WordPress DevKit · Maintained by Ehsan Enaloo · MIT</p><div><a href="../guides/faq.html">FAQ</a><a href="https://github.com/ehsanenaloo/wordpress-devkit">Source repository ↗</a></div></div></footer></body></html>

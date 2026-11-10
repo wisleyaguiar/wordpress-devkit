@@ -1,4 +1,4 @@
-"""Generate the 21 specialist guide pages from the skills they describe, so the guides cannot drift.
+"""Generate the 22 specialist guide pages from the skills they describe, so the guides cannot drift.
 
 Each page keeps the site shell of the existing file (header, navigation, footer) and replaces the title,
 description, lead and article body with content derived from the skill's SKILL.md and the command catalog.
@@ -27,6 +27,7 @@ TITLES = {
     'rest-api-development': 'REST API',
     'security-review': 'Security review',
     'site-audit-and-onboarding': 'Site audit and onboarding',
+    'site-planning': 'Site planning',
     'test-strategy': 'Testing strategy',
     'theme-development': 'Theme development',
     'ui-design': 'Interface design',
@@ -131,30 +132,49 @@ def article(skill, root):
         body += ['<h2>Boundaries and hand-offs</h2>', blocks(parts[boundary_key])]
     elif handoff:
         body += ['<h2>Boundaries and hand-offs</h2>', blocks(handoff[1].strip()[:1].upper() + handoff[1].strip()[1:])]
-    body += ['<h2>Ask Claude</h2>',
-             '<p>With the plugin loaded, start a read-only review of a bounded target:</p>',
-             f'<pre><code>/wp-devkit:{review} &lt;target-path&gt;</code></pre>' if review else '']
-    if short:
-        meaning = 'requests an implementation; use the review form to stay read-only' if short == 'design' else 'requests a quick scan'
-        body.append(f'<p>The short form <code>/wp-devkit:{short}</code> {meaning}.</p>')
-    body += ['<h2>Ask Codex, ChatGPT or Antigravity</h2>',
-             '<p>Name the installed skill and keep the request bounded. Replace the target with your files or journey.</p>',
-             f'<pre><code>${skill}\nReview the target without editing files.\nRead the project instructions and the skill\'s engineering contract first.\n'
-             'Separate confirmed findings from candidates and state the evidence and checks you could not run.</code></pre>']
+    # The planner's short command writes a plan instead of scanning, so its guide leads with planning.
+    planner = short == 'site-plan'
+    if planner:
+        body += ['<h2>Ask Claude</h2>',
+                 '<p>With the plugin loaded, start or resume a plan. The agent asks before it writes and stops at each approval step:</p>',
+                 f'<pre><code>/wp-devkit:{short} &lt;idea, brief or design path&gt;</code></pre>',
+                 f'<p>Check an existing plan without editing it with <code>/wp-devkit:{review}</code>.</p>',
+                 '<h2>Ask Codex, ChatGPT or Antigravity</h2>',
+                 '<p>Name the installed skill and describe the site or point to the design.</p>',
+                 f'<pre><code>${skill}\nPlan the WordPress site I describe. Ask before writing and stop for my approval at each step.\n'
+                 'Write only site-plan/SITE-PLAN.md. Do not build, install or publish anything.</code></pre>']
+    else:
+        body += ['<h2>Ask Claude</h2>',
+                 '<p>With the plugin loaded, start a read-only review of a bounded target:</p>',
+                 f'<pre><code>/wp-devkit:{review} &lt;target-path&gt;</code></pre>' if review else '']
+        if short:
+            meaning = 'requests an implementation; use the review form to stay read-only' if short == 'design' else 'requests a quick scan'
+            body.append(f'<p>The short form <code>/wp-devkit:{short}</code> {meaning}.</p>')
+        body += ['<h2>Ask Codex, ChatGPT or Antigravity</h2>',
+                 '<p>Name the installed skill and keep the request bounded. Replace the target with your files or journey.</p>',
+                 f'<pre><code>${skill}\nReview the target without editing files.\nRead the project instructions and the skill\'s engineering contract first.\n'
+                 'Separate confirmed findings from candidates and state the evidence and checks you could not run.</code></pre>']
     resources = reference_entries(skill, text, root)
     if resources:
         body += ['<h2>What it covers</h2>', '<p>The agent loads only the reference that matches the task:</p>', '<ul>']
         for name, description_text in resources:
             body.append(f'<li><code>{html.escape(name)}</code>: {inline(description_text)}</li>')
         body.append('</ul>')
+    plan_steps = numbered_items(parts.get('Implementation workflow', '')) if planner else []
+    if plan_steps:
+        body += ['<h2>How planning runs</h2>', '<ol>'] + [f'<li>{inline(step)}</li>' for step in plan_steps] + ['</ol>']
     steps = numbered_items(parts.get('Code Review Workflow', ''))
     if steps:
-        body += ['<h2>How a review runs</h2>', '<ol>'] + [f'<li>{inline(step)}</li>' for step in steps] + ['</ol>']
+        body += ['<h2>How a plan review runs</h2>' if planner else '<h2>How a review runs</h2>', '<ol>'] + [f'<li>{inline(step)}</li>' for step in steps] + ['</ol>']
     output = parts.get('Output Format')
     if output:
         body += ['<h2>What you get back</h2>', blocks(output)]
-    body.append('<aside class="callout"><p>Reviews are read-only. A clean review covers the inspected scope; it is not a certification. '
-                'Ask for implementation as a separate, bounded task with a regression check.</p></aside>')
+    if planner:
+        body.append('<aside class="callout"><p>Planning writes only the plan file and a plan review edits nothing. '
+                    'Building starts after you approve the plan, one task at a time, with the skill each task names.</p></aside>')
+    else:
+        body.append('<aside class="callout"><p>Reviews are read-only. A clean review covers the inspected scope; it is not a certification. '
+                    'Ask for implementation as a separate, bounded task with a regression check.</p></aside>')
     body += ['<h2>Where to go next</h2>',
              '<p>Use <a href="review-to-fix.html">review to fix</a> for a bounded implementation and '
              '<a href="doctor-and-reports.html">Doctor and reports</a> for environment and evidence tooling.</p>',

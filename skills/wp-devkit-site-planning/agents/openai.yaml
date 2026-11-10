@@ -1,0 +1,4 @@
+interface:
+  display_name: "Site planning"
+  short_description: "WordPress site planning"
+  default_prompt: "Use $wp-devkit-site-planning to plan the WordPress site I describe, and stop for my approval at each step."

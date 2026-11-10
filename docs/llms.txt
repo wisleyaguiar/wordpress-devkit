@@ -14,6 +14,7 @@
 ## Specialist guides
 
 - [Site audit & onboarding](guides/site-audit-and-onboarding.html): Map an unfamiliar WordPress project before choosing a specialist review.
+- [Site planning](guides/site-planning.html): Plan a new site from a brief or a finished design, with environments and phased build tasks.
 - [Security review](guides/security-review.html): Trace authorization and untrusted data through reachable WordPress code.
 - [Performance review](guides/performance-review.html): Investigate queries, hooks and caching with measured workload context.
 - [Plugin development](guides/plugin-development.html): Review plugin architecture, lifecycle and WordPress integration boundaries.
@@ -37,4 +38,4 @@
 
 ## Commands
 
-- [Claude command catalog](commands.html): All 43 commands; these are not Codex slash commands.
+- [Claude command catalog](commands.html): All 45 commands; these are not Codex slash commands.
