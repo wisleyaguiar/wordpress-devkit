@@ -7,6 +7,7 @@ All notable changes to this project are recorded here. The format follows [Keep 
 ### Added
 
 - New `wp-devkit-elementor-development` skill with the `/wp-devkit:elementor` and `/wp-devkit:elementor-review` commands. It covers safe edits of Elementor page data, templates and kits, custom widgets, dynamic tags, Pro form actions and Theme Builder locations, blank or stale renders, free versus Pro checks, and proving an extension works on a staging site. Parts are adapted from [Mekko Digital elementor-skills](https://github.com/Mekko-Digital/elementor-skills) under the MIT license; the notice ships with the skill.
+- New `wp-devkit-site-planning` skill with the `/wp-devkit:site-plan` and `/wp-devkit:site-plan-review` commands. It plans a WordPress site before it is built: a client briefing in short question rounds, a choice of directions, build, staging and production environments, sitemap, content model, design tokens, plugin needs and phased build tasks in `site-plan/SITE-PLAN.md`, with a stop for approval at each step. Round one also asks which tool the site is built with, such as wp-env. It also turns a finished design (image, PDF, HTML, a Figma export or the current site) into a WordPress build plan and reviews an existing plan without editing it. It needs nothing beyond reading files, viewing images, asking questions and writing Markdown.
 - The repository is now a Claude Code marketplace (`.claude-plugin/marketplace.json`), so the plugin installs from its GitHub URL.
 
 ### Changed

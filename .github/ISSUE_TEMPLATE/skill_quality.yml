@@ -28,6 +28,7 @@ body:
         - wp-devkit-rest-api-development
         - wp-devkit-security-review
         - wp-devkit-site-audit-and-onboarding
+        - wp-devkit-site-planning
         - wp-devkit-test-strategy
         - wp-devkit-theme-development
         - wp-devkit-ui-design
